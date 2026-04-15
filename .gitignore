@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+env/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+
+# Environment variables
+.env
+.env.local
+.env.production
+backend/.env
+
+# FastAPI uploads
+backend/uploads/
+
+# Data file (runtime generated)
+backend/data/expenses.json
+
+# Node / Frontend
+node_modules/
+frontend/dist/
+frontend/.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Vercel
+.vercel/
+
+# Claude Code (local settings only — settings.json은 팀 공유)
+.claude/settings.local.json

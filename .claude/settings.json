@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"C:/temp/claude_ocr_1day/venv/Scripts/python\" \"C:/temp/claude_ocr_1day/scripts/update_prd.py\" 2>/dev/null || true",
+            "statusMessage": "PRD 체크박스 업데이트 중...",
+            "timeout": 30
+          }
+        ]
+      }
+    ]
+  }
+}
