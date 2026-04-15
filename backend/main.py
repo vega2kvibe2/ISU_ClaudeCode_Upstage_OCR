@@ -1,8 +1,15 @@
+import sys
+from pathlib import Path
+
+# backend/ 디렉토리를 sys.path에 추가
+# → `cd backend && uvicorn main:app` 와 `uvicorn backend.main:app` 양쪽 호환
+sys.path.insert(0, str(Path(__file__).parent))
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(dotenv_path=Path(__file__).parent.parent / ".env")
 
 app = FastAPI(
     title="Receipt Expense Tracker API",
@@ -18,9 +25,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# 라우터 등록 (Phase 2~3에서 구현)
-# from routers import upload, expenses, summary
-# app.include_router(upload.router, prefix="/api")
+# 라우터 등록
+from routers import upload
+app.include_router(upload.router, prefix="/api")
+# Phase 3에서 추가
+# from routers import expenses, summary
 # app.include_router(expenses.router, prefix="/api")
 # app.include_router(summary.router, prefix="/api")
 
